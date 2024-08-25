@@ -16,7 +16,7 @@ struct ChildCoordinatorScreen: View {
             onDismissTop: { coordinator.dismissTop() },
             onDismissToRoot: { coordinator.dismissToRoot() },
             onPresentChild: { coordinator.presentChild() },
-            onDismissAll: { coordinator.dismissAll() }
+            onDismissAll: { coordinator.finish() }
         )
     }
 }

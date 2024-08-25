@@ -26,7 +26,7 @@
 		BC45C0782C7835BE009AF0B3 /* ChildCoordinatorRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0772C7835BE009AF0B3 /* ChildCoordinatorRoute.swift */; };
 		BC45C07A2C783643009AF0B3 /* ChildCoordinatorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0792C783643009AF0B3 /* ChildCoordinatorScreen.swift */; };
 		BC45C07C2C7BDE1A009AF0B3 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07B2C7BDE1A009AF0B3 /* TabBarCoordinator.swift */; };
-		BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordiantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordiantor.swift */; };
+		BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift */; };
 		BC45C0802C7BDECE009AF0B3 /* SecondTabRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07F2C7BDECE009AF0B3 /* SecondTabRoute.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		BC45C0772C7835BE009AF0B3 /* ChildCoordinatorRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinatorRoute.swift; sourceTree = "<group>"; };
 		BC45C0792C783643009AF0B3 /* ChildCoordinatorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinatorScreen.swift; sourceTree = "<group>"; };
 		BC45C07B2C7BDE1A009AF0B3 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordiantor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabCoordiantor.swift; sourceTree = "<group>"; };
+		BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabCoordinator.swift; sourceTree = "<group>"; };
 		BC45C07F2C7BDECE009AF0B3 /* SecondTabRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabRoute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +104,7 @@
 		BC0A33472C61876300C9C81B /* SecondTab */ = {
 			isa = PBXGroup;
 			children = (
-				BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordiantor.swift */,
+				BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift */,
 				BC45C07F2C7BDECE009AF0B3 /* SecondTabRoute.swift */,
 				BC0A333D2C61809700C9C81B /* SecondTabScreen.swift */,
 			);
@@ -238,7 +238,7 @@
 			files = (
 				BC45C0652C743F22009AF0B3 /* Helpers.swift in Sources */,
 				BC45C0762C78347B009AF0B3 /* ChildCoordinator.swift in Sources */,
-				BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordiantor.swift in Sources */,
+				BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift in Sources */,
 				BC45C0802C7BDECE009AF0B3 /* SecondTabRoute.swift in Sources */,
 				BC45C07A2C783643009AF0B3 /* ChildCoordinatorScreen.swift in Sources */,
 				BC32D6842C4317E60041181C /* TabBarView.swift in Sources */,

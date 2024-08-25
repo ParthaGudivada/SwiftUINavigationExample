@@ -15,7 +15,7 @@ protocol Coordinator: ObservableObject {
     @ViewBuilder func destination(for route: Route) -> Destination
     
     func start()
-    func dismissAll()
+    func finish()
     
     func present(child: any Coordinator)
     
@@ -38,7 +38,7 @@ extension Coordinator {
         )
     }
     
-    func dismissAll() {
+    func finish() {
         parentCoordinator?.childCoordinator = nil
     }
     
