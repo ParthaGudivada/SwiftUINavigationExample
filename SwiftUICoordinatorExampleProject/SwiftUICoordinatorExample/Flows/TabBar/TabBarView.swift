@@ -10,12 +10,12 @@ struct TabBarView: View {
         TabView(selection: $coordinator.activeTab) {
             coordinator.firstTabView
                 .tabItem {
-                    Label("First", systemImage: "cross")
+                    Label("First", systemImage: "house")
                 }
             
             coordinator.secondTabView
                 .tabItem {
-                    Label("Second", systemImage: "folder")
+                    Label("Second", systemImage: "star")
                 }
         }
     }

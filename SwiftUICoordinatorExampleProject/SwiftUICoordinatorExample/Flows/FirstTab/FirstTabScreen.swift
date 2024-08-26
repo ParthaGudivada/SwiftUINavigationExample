@@ -5,7 +5,7 @@ struct FirstTabScreen: View {
     @EnvironmentObject var coordinator: FirstTabCoordinator
     
     var body: some View {
-        CoordinatedScreen(
+        CoordinatedView(
             pushedDepth: coordinator.navigationControllers.last!.navigationPath.count + 1,
             presentedDepth: coordinator.navigationControllers.count, 
             coordinatorTypeName: String(describing: FirstTabCoordinator.self),

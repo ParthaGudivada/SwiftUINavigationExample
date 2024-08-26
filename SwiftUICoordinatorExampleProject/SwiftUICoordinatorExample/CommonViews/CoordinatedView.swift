@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CoordinatedScreen: View {
+struct CoordinatedView: View {
     @State var pushedDepth: Int
     @State var presentedDepth: Int
     
