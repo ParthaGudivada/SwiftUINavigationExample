@@ -59,6 +59,7 @@ final class FirstTabCoordinator: Coordinator {
     func presentChild() {
         let child = ChildCoordinator()
         addChild(child)
+        child.start()
         
         let presentationDelegate = PresentationDelegate { [weak child] in
             child?.finish()
@@ -74,6 +75,7 @@ final class FirstTabCoordinator: Coordinator {
     }
     
     func dismissToParent() {
+        guard rootNavigationController.presentingViewController != nil else { return }
         rootNavigationController.presentingViewController?.dismiss(animated: true)
         finish()
     }

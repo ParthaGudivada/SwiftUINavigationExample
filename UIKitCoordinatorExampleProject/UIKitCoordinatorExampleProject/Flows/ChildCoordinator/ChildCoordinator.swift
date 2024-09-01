@@ -58,11 +58,13 @@ final class ChildCoordinator: Coordinator {
     func presentChild() {
         let child = FirstTabCoordinator()
         addChild(child)
+        child.start()
         child.rootNavigationController.modalPresentationStyle = .fullScreen
         topNavigationController.present(child.rootNavigationController, animated: true)
     }
     
     func dismissToParent() {
+        guard rootNavigationController.presentingViewController != nil else { return }
         rootNavigationController.presentingViewController?.dismiss(animated: true)
         finish()
     }

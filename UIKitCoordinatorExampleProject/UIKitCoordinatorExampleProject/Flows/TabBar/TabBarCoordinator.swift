@@ -19,6 +19,9 @@ final class TabBarCoordinator: Coordinator {
 
         addChild(firstTabCoordinator)
         addChild(secondTabCoordinator)
+        
+        firstTabCoordinator.start()
+        secondTabCoordinator.start()
 
         tabBarController.viewControllers = [
             firstTabCoordinator.rootNavigationController,

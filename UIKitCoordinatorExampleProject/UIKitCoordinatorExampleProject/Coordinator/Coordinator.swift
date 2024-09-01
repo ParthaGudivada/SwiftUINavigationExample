@@ -16,7 +16,6 @@ extension Coordinator {
     func addChild(_ coordinator: Coordinator) {
         childCoordinators.append(coordinator)
         coordinator.finishDelegate = self
-        coordinator.start()
     }
     
     func removeChild(_ coordinator: Coordinator) {
