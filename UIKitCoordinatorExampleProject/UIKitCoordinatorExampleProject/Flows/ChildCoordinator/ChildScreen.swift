@@ -2,15 +2,7 @@ import SwiftUI
 
 struct ChildScreen: View {
     
-    weak var coordinator: ChildCoordinator!
-    
-    private var pushedDepth: Int {
-        coordinator.topNavigationController.viewControllers.count - 1
-    }
-    
-    private var presentedDepth: Int {
-        coordinator.navigationControllers.count - 1
-    }
+    weak var coordinator: ChildCoordinator?
     
     var body: some View {
         CoordinatedView(
@@ -27,28 +19,37 @@ struct ChildScreen: View {
             onFinish: dismissToParent
         )
     }
-    func pushNext() {
-        coordinator.pushNext()
+    
+    private func pushNext() {
+        coordinator?.pushNext()
     }
-    func popLast() {
-        coordinator.popLast()
+    private func popLast() {
+        coordinator?.popLast()
     }
-    func popToRoot() {
-        coordinator.popToRoot()
+    private func popToRoot() {
+        coordinator?.popToRoot()
     }
-    func presentNext() {
-        coordinator.presentNext()
+    private func presentNext() {
+        coordinator?.presentNext()
     }
-    func dismissTop() {
-        coordinator.dismissTop()
+    private func dismissTop() {
+        coordinator?.dismissTop()
     }
-    func dismissToRoot() {
-        coordinator.dismissToRoot()
+    private func dismissToRoot() {
+        coordinator?.dismissToRoot()
     }
-    func presentChild() {
-        coordinator.presentChild()
+    private func presentChild() {
+        coordinator?.presentChild()
     }
-    func dismissToParent() {
-        coordinator.dismissToParent()
+    private func dismissToParent() {
+        coordinator?.dismissToParent()
+    }
+    private var pushedDepth: Int {
+        guard let coordinator else { return 0 }
+        return coordinator.topNavigationController.viewControllers.count - 1
+    }
+    private var presentedDepth: Int {
+        guard let coordinator else { return 0 }
+        return coordinator.navigationControllers.count - 1
     }
 }
