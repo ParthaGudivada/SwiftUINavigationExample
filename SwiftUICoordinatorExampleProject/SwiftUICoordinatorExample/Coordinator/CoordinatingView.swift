@@ -8,12 +8,12 @@ struct CoordinatingView<SomeCoordinator: Coordinator>: View {
     var content: () -> any View
     
     var body: some View {
-        let _ = print(
-            """
-            Update CoordinatingView body for \(SomeCoordinator.self)
-            nc: \(Unmanaged.passUnretained(nc).toOpaque())\n
-            """
-        )
+//        let _ = print(
+//            """
+//            Update CoordinatingView body for \(SomeCoordinator.self)
+//            nc: \(Unmanaged.passUnretained(nc).toOpaque())\n
+//            """
+//        )
         NavigationStack(path: $nc.navigationPath) {
             AnyView(content())
                 .navigationDestination(for: SomeCoordinator.Route.self) {

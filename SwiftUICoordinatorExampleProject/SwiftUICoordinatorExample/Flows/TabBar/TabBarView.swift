@@ -5,7 +5,7 @@ struct TabBarView: View {
     @ObservedObject var coordinator: TabBarCoordinator
 
     var body: some View {
-        let _ = print("Update TabBarView body for TabBarCoordinator \n")
+//        let _ = print("Update TabBarView body for TabBarCoordinator \n")
 
         TabView(selection: $coordinator.activeTab) {
             coordinator.firstTabView

@@ -13,19 +13,6 @@ protocol Coordinator: ObservableObject {
     
     @ViewBuilder var rootView: Content { get }
     @ViewBuilder func destination(for route: Route) -> Destination
-    
-    func start()
-    func finish()
-    
-    func present(child: any Coordinator)
-    
-    func push(route: Route)
-    func popLast()
-    func popToRoot()
-    
-    func present(route: Route)
-    func dismissTop()
-    func dismissToRoot()
 }
 
 extension Coordinator {
