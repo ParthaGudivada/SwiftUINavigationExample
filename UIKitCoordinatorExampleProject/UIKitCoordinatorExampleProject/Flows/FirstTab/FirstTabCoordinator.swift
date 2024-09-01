@@ -6,11 +6,19 @@ final class FirstTabCoordinator: Coordinator {
     weak var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinators: [any Coordinator] = []
     let rootNavigationController = UINavigationController()
-    lazy var navigationControllers = [rootNavigationController]
-    var topNavigationController: UINavigationController {
+    
+    private lazy var navigationControllers = [rootNavigationController]
+    private var topNavigationController: UINavigationController {
         navigationControllers.last ?? rootNavigationController
     }
-    var presentationDelegate: PresentationDelegate?
+    private var presentationDelegate: PresentationDelegate?
+    
+    var pushedDepth: Int {
+        topNavigationController.viewControllers.count - 1
+    }
+    var presentedDepth: Int {
+        navigationControllers.count - 1
+    }
 
     func start() {
         let rootScreen = FirstTabScreen(coordinator: self)

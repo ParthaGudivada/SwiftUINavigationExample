@@ -6,9 +6,17 @@ final class ChildCoordinator: Coordinator {
     weak var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinators: [any Coordinator] = []
     let rootNavigationController = UINavigationController()
-    lazy var navigationControllers = [rootNavigationController]
-    var topNavigationController: UINavigationController {
+    
+    private lazy var navigationControllers = [rootNavigationController]
+    private var topNavigationController: UINavigationController {
         navigationControllers.last ?? rootNavigationController
+    }
+    
+    var pushedDepth: Int {
+        topNavigationController.viewControllers.count - 1
+    }
+    var presentedDepth: Int {
+        navigationControllers.count - 1
     }
 
     func start() {

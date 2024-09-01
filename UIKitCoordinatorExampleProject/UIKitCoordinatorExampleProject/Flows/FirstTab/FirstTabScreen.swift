@@ -45,11 +45,9 @@ struct FirstTabScreen: View {
         coordinator?.dismissToParent()
     }
     private var pushedDepth: Int {
-        guard let coordinator else { return 0 }
-        return coordinator.topNavigationController.viewControllers.count - 1
+        coordinator?.pushedDepth ?? 0
     }
     private var presentedDepth: Int {
-        guard let coordinator else { return 0 }
-        return coordinator.navigationControllers.count - 1
+        coordinator?.presentedDepth ?? 0
     }
 }

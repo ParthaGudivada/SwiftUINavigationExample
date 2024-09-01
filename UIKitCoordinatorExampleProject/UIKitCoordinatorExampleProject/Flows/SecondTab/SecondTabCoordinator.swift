@@ -6,8 +6,6 @@ final class SecondTabCoordinator: Coordinator {
     var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinators: [any Coordinator] = []
     let navigationController = UINavigationController()
-    
-    init(){}
 
     func start() {
         let vc = UIHostingController(rootView: view)
