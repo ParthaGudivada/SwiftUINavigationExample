@@ -2,13 +2,10 @@ import UIKit
 
 protocol Coordinator: CoordinatorFinishDelegate {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
+    
     var childCoordinators: [Coordinator] { get set }
     
-    func addChild(_ coordinator: Coordinator)
-    func removeChild(_ coordinator: Coordinator)
-    
     func start()
-    func finish()
 }
 
 extension Coordinator {
