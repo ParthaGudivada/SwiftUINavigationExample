@@ -19,6 +19,10 @@
 		BC45C0E82C83E39C009AF0B3 /* PresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0E72C83E39C009AF0B3 /* PresentationDelegate.swift */; };
 		BC45C0EA2C83EB54009AF0B3 /* FirstTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0E92C83EB54009AF0B3 /* FirstTabScreen.swift */; };
 		BC45C0EE2C84010E009AF0B3 /* ChildScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0ED2C84010E009AF0B3 /* ChildScreen.swift */; };
+		BC45C0F12C863EFE009AF0B3 /* DeeplinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F02C863EFE009AF0B3 /* DeeplinkCoordinator.swift */; };
+		BC45C0F32C863F43009AF0B3 /* DeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F22C863F43009AF0B3 /* DeeplinkHandler.swift */; };
+		BC45C0F62C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F52C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift */; };
+		BC45C0F82C8673D3009AF0B3 /* ChildDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F72C8673D3009AF0B3 /* ChildDeeplinkHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		BC45C0E72C83E39C009AF0B3 /* PresentationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDelegate.swift; sourceTree = "<group>"; };
 		BC45C0E92C83EB54009AF0B3 /* FirstTabScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTabScreen.swift; sourceTree = "<group>"; };
 		BC45C0ED2C84010E009AF0B3 /* ChildScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildScreen.swift; sourceTree = "<group>"; };
+		BC45C0F02C863EFE009AF0B3 /* DeeplinkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkCoordinator.swift; sourceTree = "<group>"; };
+		BC45C0F22C863F43009AF0B3 /* DeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C0F52C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabDeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C0F72C8673D3009AF0B3 /* ChildDeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDeeplinkHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 				BC45C0C22C7BE898009AF0B3 /* App */,
 				BC45C0DF2C7BEB22009AF0B3 /* Coordinator */,
 				BC45C0E22C7C09C3009AF0B3 /* CommonViews */,
+				BC45C0EF2C863EC3009AF0B3 /* Deeplinks */,
 				BC45C0E62C83E0B2009AF0B3 /* Helpers */,
 				BC45C0C12C7BE7B5009AF0B3 /* Flows */,
 			);
@@ -157,6 +166,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		BC45C0EF2C863EC3009AF0B3 /* Deeplinks */ = {
+			isa = PBXGroup;
+			children = (
+				BC45C0F42C86428E009AF0B3 /* Handlers */,
+				BC45C0F02C863EFE009AF0B3 /* DeeplinkCoordinator.swift */,
+				BC45C0F22C863F43009AF0B3 /* DeeplinkHandler.swift */,
+			);
+			path = Deeplinks;
+			sourceTree = "<group>";
+		};
+		BC45C0F42C86428E009AF0B3 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				BC45C0F52C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift */,
+				BC45C0F72C8673D3009AF0B3 /* ChildDeeplinkHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -226,15 +254,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC45C0F12C863EFE009AF0B3 /* DeeplinkCoordinator.swift in Sources */,
+				BC45C0F62C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift in Sources */,
 				BC45C0E12C7BEB34009AF0B3 /* Coordinator.swift in Sources */,
 				BC45C0D32C7BEB04009AF0B3 /* SecondTabCoordinator.swift in Sources */,
 				BC45C0EE2C84010E009AF0B3 /* ChildScreen.swift in Sources */,
+				BC45C0F32C863F43009AF0B3 /* DeeplinkHandler.swift in Sources */,
 				BC45C0EA2C83EB54009AF0B3 /* FirstTabScreen.swift in Sources */,
 				BC45C0AE2C7BE784009AF0B3 /* AppDelegate.swift in Sources */,
 				BC45C0B02C7BE784009AF0B3 /* SceneDelegate.swift in Sources */,
 				BC45C0E82C83E39C009AF0B3 /* PresentationDelegate.swift in Sources */,
 				BC45C0D62C7BEB04009AF0B3 /* CoordinatedView.swift in Sources */,
 				BC45C0D72C7BEB04009AF0B3 /* FirstTabCoordinator.swift in Sources */,
+				BC45C0F82C8673D3009AF0B3 /* ChildDeeplinkHandler.swift in Sources */,
 				BC45C0DD2C7BEB04009AF0B3 /* TabBarCoordinator.swift in Sources */,
 				BC45C0DA2C7BEB04009AF0B3 /* ChildCoordinator.swift in Sources */,
 			);

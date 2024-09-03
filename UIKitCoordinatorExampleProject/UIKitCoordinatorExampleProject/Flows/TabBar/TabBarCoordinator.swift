@@ -7,6 +7,9 @@ final class TabBarCoordinator: Coordinator {
     
     let tabBarController = UITabBarController()
     
+    private(set) var firstTabCoordinator: FirstTabCoordinator?
+    private(set) var secondTabCoordinator: SecondTabCoordinator?
+    
     private let window: UIWindow
 
     init(window: UIWindow) {
@@ -39,6 +42,21 @@ final class TabBarCoordinator: Coordinator {
         )
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
+        
+        self.firstTabCoordinator = firstTabCoordinator
+        self.secondTabCoordinator = secondTabCoordinator
+    }
+    
+    func dismissAll(completion: @escaping () -> Void) {
+        childCoordinators.forEach { $0.childCoordinators.removeAll() }
+        tabBarController.dismiss(animated: true, completion: completion)
+    }
+    
+    func startChildCoordinator() {
+        let child = ChildCoordinator()
+        addChild(child)
+        child.start()
+        tabBarController.present(child.rootNavigationController, animated: true)
     }
     
     deinit {

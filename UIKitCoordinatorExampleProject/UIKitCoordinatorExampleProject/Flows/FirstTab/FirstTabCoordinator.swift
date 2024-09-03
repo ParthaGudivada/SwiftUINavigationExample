@@ -26,42 +26,43 @@ final class FirstTabCoordinator: Coordinator {
         rootNavigationController.pushViewController(vc, animated: false)
     }
     
-    func pushNext() {
+    func pushNext(animated: Bool = true) {
         let nextScreen = FirstTabScreen(coordinator: self)
         let vc = UIHostingController(rootView: nextScreen)
-        topNavigationController.pushViewController(vc, animated: true)
+        topNavigationController.pushViewController(vc, animated: animated)
     }
     
-    func popLast() {
-        topNavigationController.popViewController(animated: true)
+    func popLast(animated: Bool = true) {
+        topNavigationController.popViewController(animated: animated)
     }
     
-    func popToRoot() {
-        topNavigationController.popToRootViewController(animated: true)
+    func popToRoot(animated: Bool = true) {
+        topNavigationController.popToRootViewController(animated: animated)
     }
     
-    func presentNext() {
+    func presentNext(animated: Bool = true) {
         let topNC = topNavigationController
         let nc = UINavigationController()
         navigationControllers.append(nc)
         let nextScreen = FirstTabScreen(coordinator: self)
         let vc = UIHostingController(rootView: nextScreen)
         nc.viewControllers = [vc]
-        topNC.present(nc, animated: true)
+        topNC.present(nc, animated: animated)
     }
     
-    func dismissTop() {
+    func dismissTop(animated: Bool = true) {
         guard topNavigationController != rootNavigationController else { return }
-        topNavigationController.dismiss(animated: true)
+        topNavigationController.dismiss(animated: animated)
         navigationControllers.removeLast()
     }
     
-    func dismissToRoot() {
+    func dismissToRoot(animated: Bool = true) {
         guard rootNavigationController.presentedViewController != nil else {
             return
         }
-        rootNavigationController.dismiss(animated: true)
+        rootNavigationController.dismiss(animated: animated)
         navigationControllers.removeAll { $0 !== rootNavigationController }
+        childCoordinators.forEach { $0.finish() }
     }
     
     func presentChild() {

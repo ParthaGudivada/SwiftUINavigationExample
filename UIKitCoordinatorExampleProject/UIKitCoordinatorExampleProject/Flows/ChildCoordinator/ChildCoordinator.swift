@@ -61,6 +61,7 @@ final class ChildCoordinator: Coordinator {
         }
         rootNavigationController.dismiss(animated: true)
         navigationControllers.removeAll { $0 !== rootNavigationController }
+        childCoordinators.forEach { $0.finish() }
     }
     
     func presentChild() {
