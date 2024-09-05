@@ -28,6 +28,11 @@
 		BC45C07C2C7BDE1A009AF0B3 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07B2C7BDE1A009AF0B3 /* TabBarCoordinator.swift */; };
 		BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift */; };
 		BC45C0802C7BDECE009AF0B3 /* SecondTabRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C07F2C7BDECE009AF0B3 /* SecondTabRoute.swift */; };
+		BC45C1012C880A6C009AF0B3 /* ChildDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FB2C880A6C009AF0B3 /* ChildDeeplinkHandler.swift */; };
+		BC45C1022C880A6C009AF0B3 /* FirstTabDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FC2C880A6C009AF0B3 /* FirstTabDeeplinkHandler.swift */; };
+		BC45C1032C880A6C009AF0B3 /* DeeplinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FE2C880A6C009AF0B3 /* DeeplinkCoordinator.swift */; };
+		BC45C1042C880A6C009AF0B3 /* DeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FF2C880A6C009AF0B3 /* DeeplinkHandler.swift */; };
+		BC45C1082C894C38009AF0B3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C1072C894C38009AF0B3 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +58,12 @@
 		BC45C07B2C7BDE1A009AF0B3 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		BC45C07D2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabCoordinator.swift; sourceTree = "<group>"; };
 		BC45C07F2C7BDECE009AF0B3 /* SecondTabRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabRoute.swift; sourceTree = "<group>"; };
+		BC45C0FB2C880A6C009AF0B3 /* ChildDeeplinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildDeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C0FC2C880A6C009AF0B3 /* FirstTabDeeplinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTabDeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C0FE2C880A6C009AF0B3 /* DeeplinkCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkCoordinator.swift; sourceTree = "<group>"; };
+		BC45C0FF2C880A6C009AF0B3 /* DeeplinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C1072C894C38009AF0B3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BC45C1092C894E1A009AF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +140,14 @@
 		BC32D6802C4317E60041181C /* SwiftUICoordinatorExample */ = {
 			isa = PBXGroup;
 			children = (
+				BC45C1092C894E1A009AF0B3 /* Info.plist */,
 				BC32D6852C4317E70041181C /* Assets.xcassets */,
 				BC32D6872C4317E70041181C /* Preview Content */,
 				BC32D6812C4317E60041181C /* SwiftUICoordinatorExampleApp.swift */,
+				BC45C1072C894C38009AF0B3 /* AppCoordinator.swift */,
 				BC0A33362C61690C00C9C81B /* Coordinator */,
 				BC45C0E32C7C09E0009AF0B3 /* CommonViews */,
+				BC45C1002C880A6C009AF0B3 /* Deeplinks */,
 				BC0A333A2C61804B00C9C81B /* Flows */,
 			);
 			path = SwiftUICoordinatorExample;
@@ -173,6 +187,26 @@
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
+		};
+		BC45C0FD2C880A6C009AF0B3 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				BC45C0FB2C880A6C009AF0B3 /* ChildDeeplinkHandler.swift */,
+				BC45C0FC2C880A6C009AF0B3 /* FirstTabDeeplinkHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		BC45C1002C880A6C009AF0B3 /* Deeplinks */ = {
+			isa = PBXGroup;
+			children = (
+				BC45C0FD2C880A6C009AF0B3 /* Handlers */,
+				BC45C0FE2C880A6C009AF0B3 /* DeeplinkCoordinator.swift */,
+				BC45C0FF2C880A6C009AF0B3 /* DeeplinkHandler.swift */,
+			);
+			name = Deeplinks;
+			path = SwiftUICoordinatorExample/Deeplinks;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -244,13 +278,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC45C1042C880A6C009AF0B3 /* DeeplinkHandler.swift in Sources */,
 				BC45C0652C743F22009AF0B3 /* Helpers.swift in Sources */,
+				BC45C1082C894C38009AF0B3 /* AppCoordinator.swift in Sources */,
 				BC45C0762C78347B009AF0B3 /* ChildCoordinator.swift in Sources */,
 				BC45C07E2C7BDEBF009AF0B3 /* SecondTabCoordinator.swift in Sources */,
 				BC45C0802C7BDECE009AF0B3 /* SecondTabRoute.swift in Sources */,
 				BC45C07A2C783643009AF0B3 /* ChildCoordinatorScreen.swift in Sources */,
 				BC32D6842C4317E60041181C /* TabBarView.swift in Sources */,
+				BC45C1032C880A6C009AF0B3 /* DeeplinkCoordinator.swift in Sources */,
 				BC45C0782C7835BE009AF0B3 /* ChildCoordinatorRoute.swift in Sources */,
+				BC45C1012C880A6C009AF0B3 /* ChildDeeplinkHandler.swift in Sources */,
+				BC45C1022C880A6C009AF0B3 /* FirstTabDeeplinkHandler.swift in Sources */,
 				BC45C07C2C7BDE1A009AF0B3 /* TabBarCoordinator.swift in Sources */,
 				BC45C0672C743F71009AF0B3 /* NavigationType.swift in Sources */,
 				BC45C03F2C6453BC009AF0B3 /* FirstTabScreen.swift in Sources */,
@@ -398,6 +437,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICoordinatorExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICoordinatorExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +466,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICoordinatorExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICoordinatorExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

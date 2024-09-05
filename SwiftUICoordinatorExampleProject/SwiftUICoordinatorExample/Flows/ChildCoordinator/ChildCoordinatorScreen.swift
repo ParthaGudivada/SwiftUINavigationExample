@@ -8,7 +8,7 @@ struct ChildCoordinatorScreen: View {
         CoordinatedView(
             pushedDepth: coordinator.navigationControllers.last!.navigationPath.count,
             presentedDepth: coordinator.navigationControllers.count - 1,
-            coordinatorTypeName: String(describing: FirstTabCoordinator.self),
+            coordinatorTypeName: String(describing: ChildCoordinator.self),
             onPushNext: { coordinator.pushNextScreen() },
             onPopLast: { coordinator.popLast() },
             onPopToRoot: { coordinator.popToRoot() },

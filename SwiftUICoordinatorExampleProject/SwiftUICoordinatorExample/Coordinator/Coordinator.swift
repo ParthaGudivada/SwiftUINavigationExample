@@ -73,6 +73,8 @@ extension Coordinator {
     }
     
     func dismissToRoot() {
+        childCoordinator?.finish()
+        
         guard navigationControllers.count > 1 else { return }
         navigationControllers.removeLast(navigationControllers.count - 1)
         navigationControllers.first?.presentedRoute = nil

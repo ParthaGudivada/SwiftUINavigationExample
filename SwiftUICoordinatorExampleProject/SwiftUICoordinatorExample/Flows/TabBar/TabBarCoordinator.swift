@@ -31,4 +31,11 @@ final class TabBarCoordinator: ObservableObject {
     func setCurrentTab(_ tab: Tab) {
         activeTab = tab
     }
+    
+    func dismissAll() {
+        firstTabCoordinator.dismissToRoot()
+        secondTabCoordinator.dismissToRoot()
+        firstTabCoordinator.popToRoot()
+        secondTabCoordinator.popToRoot()
+    }
 }
