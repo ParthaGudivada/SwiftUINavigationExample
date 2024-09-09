@@ -6,9 +6,9 @@ protocol Coordinator: ObservableObject, CoordinatorFinishDelegate {
     associatedtype Content: View
     associatedtype Destination: View
     
-    var finishDelegate: CoordinatorFinishDelegate? { get set }
-    
     var childCoordinator: (any Coordinator)? { get set }
+    
+    var finishDelegate: CoordinatorFinishDelegate? { get set }
     
     var navigationControllers: [NavigationController<Route>] { get set }
     
