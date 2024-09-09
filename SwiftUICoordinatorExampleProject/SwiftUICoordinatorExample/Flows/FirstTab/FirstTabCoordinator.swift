@@ -1,8 +1,9 @@
 import SwiftUI
 
 final class FirstTabCoordinator: Coordinator {
+
+    weak var finishDelegate: CoordinatorFinishDelegate?
     
-    weak var parentCoordinator: (any Coordinator)?
     @Published var childCoordinator: (any Coordinator)?
     @Published var navigationControllers = [NavigationController<FirstTabRoute>]()
     

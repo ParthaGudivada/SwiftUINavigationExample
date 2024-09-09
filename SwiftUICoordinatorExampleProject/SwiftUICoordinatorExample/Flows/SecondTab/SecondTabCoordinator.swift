@@ -2,7 +2,8 @@ import SwiftUI
 
 final class SecondTabCoordinator: Coordinator {
     
-    weak var parentCoordinator: (any Coordinator)?
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    
     @Published var childCoordinator: (any Coordinator)?
     @Published var navigationControllers = [NavigationController<SecondTabRoute>]()
     

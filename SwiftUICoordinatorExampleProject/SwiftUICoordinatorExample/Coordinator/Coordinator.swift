@@ -1,12 +1,13 @@
 import SwiftUI
 
-protocol Coordinator: ObservableObject {
+protocol Coordinator: ObservableObject, CoordinatorFinishDelegate {
     
     associatedtype Route: Routable
     associatedtype Content: View
     associatedtype Destination: View
     
-    var parentCoordinator: (any Coordinator)? { get set }
+    var finishDelegate: CoordinatorFinishDelegate? { get set }
+    
     var childCoordinator: (any Coordinator)? { get set }
     
     var navigationControllers: [NavigationController<Route>] { get set }
@@ -26,12 +27,16 @@ extension Coordinator {
     }
     
     func finish() {
-        parentCoordinator?.childCoordinator = nil
+        finishDelegate?.didFinish(childCoordinator: self)
+    }
+    
+    func didFinish(childCoordinator: any Coordinator) {
+        self.childCoordinator = nil
     }
     
     func present(child: any Coordinator) {
         self.childCoordinator = child
-        child.parentCoordinator = self
+        child.finishDelegate = self
     }
     
     func push(route: Route) {
@@ -109,3 +114,7 @@ extension Coordinator {
     }
 }
 
+protocol CoordinatorFinishDelegate: AnyObject {
+    // TODO: if only one child coorinator - remove parameter
+    func didFinish(childCoordinator: any Coordinator)
+}

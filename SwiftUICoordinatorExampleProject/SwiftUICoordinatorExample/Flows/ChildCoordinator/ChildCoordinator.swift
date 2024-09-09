@@ -2,7 +2,8 @@ import SwiftUI
 
 final class ChildCoordinator: Coordinator {
     
-    weak var parentCoordinator: (any Coordinator)?
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    
     @Published var childCoordinator: (any Coordinator)?
     @Published var navigationControllers = [NavigationController<ChildCoordinatorRoute>]()
     
