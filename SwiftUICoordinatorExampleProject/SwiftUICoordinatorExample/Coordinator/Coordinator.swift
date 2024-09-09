@@ -6,7 +6,7 @@ protocol Coordinator: ObservableObject {
     associatedtype Content: View
     associatedtype Destination: View
     
-    var parentCoordinator: (any Coordinator)! { get set }
+    var parentCoordinator: (any Coordinator)? { get set }
     var childCoordinator: (any Coordinator)? { get set }
     
     var navigationControllers: [NavigationController<Route>] { get set }
