@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CoordinatingView<SomeCoordinator: Coordinator>: View {
+struct CoordinatingView<SomeCoordinator: FlowCoordinator>: View {
     
     @StateObject var nc: NavigationController<SomeCoordinator.Route>
     @StateObject var coordinator: SomeCoordinator

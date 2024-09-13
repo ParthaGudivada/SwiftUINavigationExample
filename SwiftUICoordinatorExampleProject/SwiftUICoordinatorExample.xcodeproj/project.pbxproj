@@ -33,6 +33,8 @@
 		BC45C1032C880A6C009AF0B3 /* DeeplinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FE2C880A6C009AF0B3 /* DeeplinkCoordinator.swift */; };
 		BC45C1042C880A6C009AF0B3 /* DeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0FF2C880A6C009AF0B3 /* DeeplinkHandler.swift */; };
 		BC45C1082C894C38009AF0B3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C1072C894C38009AF0B3 /* AppCoordinator.swift */; };
+		BC45C12B2C93F51B009AF0B3 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C12A2C93F51B009AF0B3 /* FlowCoordinator.swift */; };
+		BC45C12D2C93F53F009AF0B3 /* CompositionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C12C2C93F53F009AF0B3 /* CompositionCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		BC45C0FF2C880A6C009AF0B3 /* DeeplinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkHandler.swift; sourceTree = "<group>"; };
 		BC45C1072C894C38009AF0B3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC45C1092C894E1A009AF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC45C12A2C93F51B009AF0B3 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		BC45C12C2C93F53F009AF0B3 /* CompositionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				BC45C0722C7811DE009AF0B3 /* Coordinator.swift */,
+				BC45C12A2C93F51B009AF0B3 /* FlowCoordinator.swift */,
+				BC45C12C2C93F53F009AF0B3 /* CompositionCoordinator.swift */,
 				BC45C06C2C7446E3009AF0B3 /* CoordinatingView.swift */,
 				BC45C0592C72F2FD009AF0B3 /* NavigationController.swift */,
 				BC45C0662C743F71009AF0B3 /* NavigationType.swift */,
@@ -293,8 +299,10 @@
 				BC45C07C2C7BDE1A009AF0B3 /* TabBarCoordinator.swift in Sources */,
 				BC45C0672C743F71009AF0B3 /* NavigationType.swift in Sources */,
 				BC45C03F2C6453BC009AF0B3 /* FirstTabScreen.swift in Sources */,
+				BC45C12D2C93F53F009AF0B3 /* CompositionCoordinator.swift in Sources */,
 				BC45C0632C743EF4009AF0B3 /* Routable.swift in Sources */,
 				BC45C04D2C6DA5A9009AF0B3 /* CoordinatedView.swift in Sources */,
+				BC45C12B2C93F51B009AF0B3 /* FlowCoordinator.swift in Sources */,
 				BC45C0732C7811DE009AF0B3 /* Coordinator.swift in Sources */,
 				BC45C05A2C72F2FD009AF0B3 /* NavigationController.swift in Sources */,
 				BC45C0512C6DABEC009AF0B3 /* FirstTabCoordinator.swift in Sources */,

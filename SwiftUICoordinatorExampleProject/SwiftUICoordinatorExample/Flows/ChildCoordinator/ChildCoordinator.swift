@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class ChildCoordinator: Coordinator {
+final class ChildCoordinator: FlowCoordinator {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     

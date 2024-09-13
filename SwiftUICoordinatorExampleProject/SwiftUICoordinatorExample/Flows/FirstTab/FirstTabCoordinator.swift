@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class FirstTabCoordinator: Coordinator {
+final class FirstTabCoordinator: FlowCoordinator {
 
     weak var finishDelegate: CoordinatorFinishDelegate?
     
