@@ -6,7 +6,9 @@ protocol FlowCoordinator: Coordinator {
     associatedtype Destination: View
     
     var childCoordinator: (any Coordinator)? { get set }
+    
     var navigationControllers: [NavigationController<Route>] { get set }
+    
     @MainActor @ViewBuilder func destination(for route: Route) -> Destination
 }
 

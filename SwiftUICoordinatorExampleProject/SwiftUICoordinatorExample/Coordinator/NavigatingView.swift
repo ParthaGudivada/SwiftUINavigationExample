@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CoordinatingView<SomeCoordinator: FlowCoordinator>: View {
+struct NavigatingView<SomeCoordinator: FlowCoordinator>: View {
     
     @StateObject var nc: NavigationController<SomeCoordinator.Route>
     @StateObject var coordinator: SomeCoordinator
@@ -10,7 +10,7 @@ struct CoordinatingView<SomeCoordinator: FlowCoordinator>: View {
     var body: some View {
 //        let _ = print(
 //            """
-//            Update CoordinatingView body for \(SomeCoordinator.self)
+//            Update NavigatingView body for \(SomeCoordinator.self)
 //            nc: \(Unmanaged.passUnretained(nc).toOpaque())\n
 //            """
 //        )
@@ -41,7 +41,7 @@ struct CoordinatingView<SomeCoordinator: FlowCoordinator>: View {
             let route = nc.presentedRoute,
             let nc = coordinator.navigationControllers.last
         {
-            CoordinatingView(
+            NavigatingView(
                 nc: nc,
                 coordinator: coordinator
             ) {

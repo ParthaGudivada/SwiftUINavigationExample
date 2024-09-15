@@ -5,10 +5,10 @@ final class NavigationController<Route: Routable>: ObservableObject {
     @Published var navigationPath = NavigationPath()
     @Published var presentedRoute: Route?
     
-    private let onDismissPresented: (NavigationController) -> Void
+    private let onDismissPresentedNavigationController: (NavigationController) -> Void
     
-    init(onDismissPresented: @escaping (NavigationController) -> Void) {
-        self.onDismissPresented = onDismissPresented
+    init(onDismissPresentedNavigationController: @escaping (NavigationController) -> Void) {
+        self.onDismissPresentedNavigationController = onDismissPresentedNavigationController
     }
     
     func isPresenting(with type: PresentationType) -> Binding<Bool> {
@@ -20,7 +20,7 @@ final class NavigationController<Route: Routable>: ObservableObject {
         } set: { [weak self] newValue in
             guard let self, !newValue else { return }
             self.presentedRoute = nil
-            self.onDismissPresented(self)
+            self.onDismissPresentedNavigationController(self)
         }
     }
 }

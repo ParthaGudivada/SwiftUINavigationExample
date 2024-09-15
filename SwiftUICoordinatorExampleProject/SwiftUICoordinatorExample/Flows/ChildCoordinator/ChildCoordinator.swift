@@ -21,7 +21,7 @@ final class ChildCoordinator: FlowCoordinator {
     }
     
     var rootView: some View {
-        CoordinatingView(
+        NavigatingView(
             nc: self.rootNavigationController,
             coordinator: self
         ) {

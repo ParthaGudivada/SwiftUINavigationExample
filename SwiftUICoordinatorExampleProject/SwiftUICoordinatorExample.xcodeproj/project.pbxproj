@@ -19,7 +19,7 @@
 		BC45C0632C743EF4009AF0B3 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0622C743EF4009AF0B3 /* Routable.swift */; };
 		BC45C0652C743F22009AF0B3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0642C743F22009AF0B3 /* Helpers.swift */; };
 		BC45C0672C743F71009AF0B3 /* NavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0662C743F71009AF0B3 /* NavigationType.swift */; };
-		BC45C06D2C7446E3009AF0B3 /* CoordinatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C06C2C7446E3009AF0B3 /* CoordinatingView.swift */; };
+		BC45C06D2C7446E3009AF0B3 /* NavigatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C06C2C7446E3009AF0B3 /* NavigatingView.swift */; };
 		BC45C06F2C744AA8009AF0B3 /* FirstTabRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C06E2C744AA8009AF0B3 /* FirstTabRoute.swift */; };
 		BC45C0732C7811DE009AF0B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0722C7811DE009AF0B3 /* Coordinator.swift */; };
 		BC45C0762C78347B009AF0B3 /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0752C78347B009AF0B3 /* ChildCoordinator.swift */; };
@@ -51,7 +51,7 @@
 		BC45C0622C743EF4009AF0B3 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		BC45C0642C743F22009AF0B3 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		BC45C0662C743F71009AF0B3 /* NavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationType.swift; sourceTree = "<group>"; };
-		BC45C06C2C7446E3009AF0B3 /* CoordinatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatingView.swift; sourceTree = "<group>"; };
+		BC45C06C2C7446E3009AF0B3 /* NavigatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatingView.swift; sourceTree = "<group>"; };
 		BC45C06E2C744AA8009AF0B3 /* FirstTabRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabRoute.swift; sourceTree = "<group>"; };
 		BC45C0722C7811DE009AF0B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC45C0752C78347B009AF0B3 /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				BC45C0722C7811DE009AF0B3 /* Coordinator.swift */,
 				BC45C12A2C93F51B009AF0B3 /* FlowCoordinator.swift */,
 				BC45C12C2C93F53F009AF0B3 /* CompositionCoordinator.swift */,
-				BC45C06C2C7446E3009AF0B3 /* CoordinatingView.swift */,
+				BC45C06C2C7446E3009AF0B3 /* NavigatingView.swift */,
 				BC45C0592C72F2FD009AF0B3 /* NavigationController.swift */,
 				BC45C0662C743F71009AF0B3 /* NavigationType.swift */,
 				BC45C0622C743EF4009AF0B3 /* Routable.swift */,
@@ -306,7 +306,7 @@
 				BC45C0732C7811DE009AF0B3 /* Coordinator.swift in Sources */,
 				BC45C05A2C72F2FD009AF0B3 /* NavigationController.swift in Sources */,
 				BC45C0512C6DABEC009AF0B3 /* FirstTabCoordinator.swift in Sources */,
-				BC45C06D2C7446E3009AF0B3 /* CoordinatingView.swift in Sources */,
+				BC45C06D2C7446E3009AF0B3 /* NavigatingView.swift in Sources */,
 				BC45C06F2C744AA8009AF0B3 /* FirstTabRoute.swift in Sources */,
 				BC32D6822C4317E60041181C /* SwiftUICoordinatorExampleApp.swift in Sources */,
 				BC0A333E2C61809700C9C81B /* SecondTabScreen.swift in Sources */,
