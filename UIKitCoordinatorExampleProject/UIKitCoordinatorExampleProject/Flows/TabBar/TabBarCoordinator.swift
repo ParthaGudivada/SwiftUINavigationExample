@@ -1,7 +1,7 @@
 import SwiftUI
 import UIKit
 
-final class TabBarCoordinator: Coordinator {
+final class TabBarCoordinator: CompositionCoordinator {
     var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinators = [any Coordinator]()
     
@@ -48,7 +48,7 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func dismissAll(completion: @escaping () -> Void) {
-        childCoordinators.forEach { $0.childCoordinators.removeAll() }
+        childCoordinators.forEach { $0.finish() }
         tabBarController.dismiss(animated: true, completion: completion)
     }
     

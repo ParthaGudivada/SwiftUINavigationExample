@@ -1,10 +1,10 @@
 import SwiftUI
 import UIKit
 
-final class FirstTabCoordinator: Coordinator {
+final class FirstTabCoordinator: FlowCoordinator {
     
     weak var finishDelegate: (any CoordinatorFinishDelegate)?
-    var childCoordinators: [any Coordinator] = []
+    var childCoordinator: Coordinator?
     let rootNavigationController = UINavigationController()
     
     private lazy var navigationControllers = [rootNavigationController]
@@ -62,7 +62,7 @@ final class FirstTabCoordinator: Coordinator {
         }
         rootNavigationController.dismiss(animated: animated)
         navigationControllers.removeAll { $0 !== rootNavigationController }
-        childCoordinators.forEach { $0.finish() }
+        childCoordinator?.finish()
     }
     
     func presentChild() {

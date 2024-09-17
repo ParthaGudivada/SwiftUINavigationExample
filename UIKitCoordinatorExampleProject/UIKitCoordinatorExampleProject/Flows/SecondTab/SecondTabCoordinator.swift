@@ -1,10 +1,10 @@
 import SwiftUI
 import UIKit
 
-final class SecondTabCoordinator: Coordinator {
+final class SecondTabCoordinator: FlowCoordinator {
     
     var finishDelegate: (any CoordinatorFinishDelegate)?
-    var childCoordinators: [any Coordinator] = []
+    var childCoordinator: Coordinator?
     let navigationController = UINavigationController()
 
     func start() {

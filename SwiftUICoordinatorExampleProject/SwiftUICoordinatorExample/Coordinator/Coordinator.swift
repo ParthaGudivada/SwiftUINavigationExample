@@ -9,6 +9,7 @@ protocol Coordinator: ObservableObject, CoordinatorFinishDelegate {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
     
     func start()
+    func finish()
 }
 
 extension Coordinator {

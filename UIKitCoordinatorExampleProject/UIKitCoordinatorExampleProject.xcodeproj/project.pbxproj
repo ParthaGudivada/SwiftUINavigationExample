@@ -23,6 +23,8 @@
 		BC45C0F32C863F43009AF0B3 /* DeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F22C863F43009AF0B3 /* DeeplinkHandler.swift */; };
 		BC45C0F62C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F52C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift */; };
 		BC45C0F82C8673D3009AF0B3 /* ChildDeeplinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C0F72C8673D3009AF0B3 /* ChildDeeplinkHandler.swift */; };
+		BC45C12F2C991B4A009AF0B3 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C12E2C991B4A009AF0B3 /* FlowCoordinator.swift */; };
+		BC45C1312C991B56009AF0B3 /* CompositionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C1302C991B56009AF0B3 /* CompositionCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		BC45C0F22C863F43009AF0B3 /* DeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandler.swift; sourceTree = "<group>"; };
 		BC45C0F52C86429E009AF0B3 /* FirstTabDeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabDeeplinkHandler.swift; sourceTree = "<group>"; };
 		BC45C0F72C8673D3009AF0B3 /* ChildDeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDeeplinkHandler.swift; sourceTree = "<group>"; };
+		BC45C12E2C991B4A009AF0B3 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		BC45C1302C991B56009AF0B3 /* CompositionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				BC45C0E02C7BEB34009AF0B3 /* Coordinator.swift */,
+				BC45C12E2C991B4A009AF0B3 /* FlowCoordinator.swift */,
+				BC45C1302C991B56009AF0B3 /* CompositionCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 				BC45C0E82C83E39C009AF0B3 /* PresentationDelegate.swift in Sources */,
 				BC45C0D62C7BEB04009AF0B3 /* CoordinatedView.swift in Sources */,
 				BC45C0D72C7BEB04009AF0B3 /* FirstTabCoordinator.swift in Sources */,
+				BC45C12F2C991B4A009AF0B3 /* FlowCoordinator.swift in Sources */,
 				BC45C0F82C8673D3009AF0B3 /* ChildDeeplinkHandler.swift in Sources */,
 				BC45C0DD2C7BEB04009AF0B3 /* TabBarCoordinator.swift in Sources */,
 				BC45C0DA2C7BEB04009AF0B3 /* ChildCoordinator.swift in Sources */,
+				BC45C1312C991B56009AF0B3 /* CompositionCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
