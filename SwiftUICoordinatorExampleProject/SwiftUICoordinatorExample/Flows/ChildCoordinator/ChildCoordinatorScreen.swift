@@ -6,7 +6,7 @@ struct ChildCoordinatorScreen: View {
     
     var body: some View {
         CoordinatedView(
-            pushedDepth: coordinator.navigationControllers.last!.navigationPath.count,
+            pushedDepth: coordinator.navigationControllers.last?.navigationPath.count ?? 0,
             presentedDepth: coordinator.navigationControllers.count - 1,
             coordinatorTypeName: String(describing: ChildCoordinator.self),
             onPushNext: { coordinator.pushNextScreen() },
