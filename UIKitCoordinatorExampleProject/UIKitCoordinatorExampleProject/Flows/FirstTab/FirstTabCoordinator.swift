@@ -11,7 +11,8 @@ final class FirstTabCoordinator: FlowCoordinator {
     private var topNavigationController: UINavigationController {
         navigationControllers.last ?? rootNavigationController
     }
-    private var presentationDelegate: PresentationDelegate?
+    private var childPresentationDelegate: PresentationDelegate?
+    private var routePresentationDelegates = [PresentationDelegate]()
     
     var pushedDepth: Int {
         topNavigationController.viewControllers.count - 1
@@ -47,12 +48,19 @@ final class FirstTabCoordinator: FlowCoordinator {
         let nextScreen = FirstTabScreen(coordinator: self)
         let vc = UIHostingController(rootView: nextScreen)
         nc.viewControllers = [vc]
+        let presentationDelegate = PresentationDelegate { [weak self] in
+            self?.navigationControllers.removeLast()
+            self?.routePresentationDelegates.removeLast()
+        }
+        nc.presentationController?.delegate = presentationDelegate
+        routePresentationDelegates.append(presentationDelegate)
         topNC.present(nc, animated: animated)
     }
     
     func dismissTop(animated: Bool = true) {
         guard topNavigationController != rootNavigationController else { return }
         topNavigationController.dismiss(animated: animated)
+        routePresentationDelegates.removeLast()
         navigationControllers.removeLast()
     }
     
@@ -62,6 +70,7 @@ final class FirstTabCoordinator: FlowCoordinator {
         }
         rootNavigationController.dismiss(animated: animated)
         navigationControllers.removeAll { $0 !== rootNavigationController }
+        routePresentationDelegates.removeAll()
         childCoordinator?.finish()
     }
     
@@ -74,7 +83,7 @@ final class FirstTabCoordinator: FlowCoordinator {
             child?.finish()
         }
         child.rootNavigationController.presentationController?.delegate = presentationDelegate
-        self.presentationDelegate = presentationDelegate
+        self.childPresentationDelegate = presentationDelegate
         
         if let sheet = child.rootNavigationController.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
