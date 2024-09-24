@@ -11,6 +11,8 @@ final class ChildCoordinator: FlowCoordinator {
     private var topNavigationController: UINavigationController {
         navigationControllers.last ?? rootNavigationController
     }
+    private var childPresentationDelegate: PresentationDelegate?
+    private var routePresentationDelegates = [PresentationDelegate]()
     
     var pushedDepth: Int {
         topNavigationController.viewControllers.count - 1
@@ -46,12 +48,19 @@ final class ChildCoordinator: FlowCoordinator {
         let nextScreen = ChildScreen(coordinator: self)
         let vc = UIHostingController(rootView: nextScreen)
         nc.viewControllers = [vc]
+        let presentationDelegate = PresentationDelegate { [weak self] in
+            self?.navigationControllers.removeLast()
+            self?.routePresentationDelegates.removeLast()
+        }
+        nc.presentationController?.delegate = presentationDelegate
+        routePresentationDelegates.append(presentationDelegate)
         topNC.present(nc, animated: true)
     }
     
     func dismissTop() {
         guard topNavigationController != rootNavigationController else { return }
         topNavigationController.dismiss(animated: true)
+        routePresentationDelegates.removeLast()
         navigationControllers.removeLast()
     }
     
@@ -61,6 +70,7 @@ final class ChildCoordinator: FlowCoordinator {
         }
         rootNavigationController.dismiss(animated: true)
         navigationControllers.removeAll { $0 !== rootNavigationController }
+        routePresentationDelegates.removeAll()
         childCoordinator?.finish()
     }
     
@@ -68,6 +78,11 @@ final class ChildCoordinator: FlowCoordinator {
         let child = FirstTabCoordinator()
         addChild(child)
         child.start()
+        let presentationDelegate = PresentationDelegate { [weak child] in
+            child?.finish()
+        }
+        child.rootNavigationController.presentationController?.delegate = presentationDelegate
+        self.childPresentationDelegate = presentationDelegate
         child.rootNavigationController.modalPresentationStyle = .fullScreen
         topNavigationController.present(child.rootNavigationController, animated: true)
     }
