@@ -39,7 +39,7 @@ struct FirstTabScreen: View {
         coordinator?.dismissToRoot()
     }
     private func presentChild() {
-        coordinator?.presentChild()
+        coordinator?.startChildCoordinator()
     }
     private func dismissToParent() {
         coordinator?.dismissToParent()

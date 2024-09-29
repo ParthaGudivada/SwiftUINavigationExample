@@ -17,8 +17,10 @@ final class TabBarCoordinator: CompositionCoordinator {
     }
 
     func start() {
-        let firstTabCoordinator = FirstTabCoordinator()
-        let secondTabCoordinator = SecondTabCoordinator()
+        let firstTabNC = UINavigationController()
+        let firstTabCoordinator = FirstTabCoordinator(navigationController: firstTabNC)
+        let secondTabNC = UINavigationController()
+        let secondTabCoordinator = SecondTabCoordinator(navigationController: secondTabNC)
 
         addChild(firstTabCoordinator)
         addChild(secondTabCoordinator)
@@ -26,16 +28,13 @@ final class TabBarCoordinator: CompositionCoordinator {
         firstTabCoordinator.start()
         secondTabCoordinator.start()
 
-        tabBarController.viewControllers = [
-            firstTabCoordinator.rootNavigationController,
-            secondTabCoordinator.navigationController
-        ]
-        firstTabCoordinator.rootNavigationController.tabBarItem = UITabBarItem(
+        tabBarController.viewControllers = [ firstTabNC, secondTabNC ]
+        firstTabNC.tabBarItem = UITabBarItem(
             title: "First",
             image: UIImage(systemName: "house"),
             tag: 0
         )
-        secondTabCoordinator.navigationController.tabBarItem = UITabBarItem(
+        secondTabNC.tabBarItem = UITabBarItem(
             title: "Second",
             image: UIImage(systemName: "star"),
             tag: 1
@@ -50,13 +49,6 @@ final class TabBarCoordinator: CompositionCoordinator {
     func dismissAll(completion: @escaping () -> Void) {
         childCoordinators.forEach { $0.finish() }
         tabBarController.dismiss(animated: true, completion: completion)
-    }
-    
-    func startChildCoordinator() {
-        let child = ChildCoordinator()
-        addChild(child)
-        child.start()
-        tabBarController.present(child.rootNavigationController, animated: true)
     }
     
     deinit {

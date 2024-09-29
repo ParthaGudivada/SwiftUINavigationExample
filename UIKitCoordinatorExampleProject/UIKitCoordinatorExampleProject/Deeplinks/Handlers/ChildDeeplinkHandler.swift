@@ -21,7 +21,7 @@ final class ChildDeeplinkHandler: DeeplinkHandlerProtocol {
             return
         }
         tabBarCoordinator?.dismissAll { [weak self] in
-            self?.tabBarCoordinator?.startChildCoordinator()
+            self?.tabBarCoordinator?.firstTabCoordinator?.startChildCoordinator()
         }
     }
 }

@@ -5,13 +5,15 @@ final class ChildCoordinator: FlowCoordinator {
     
     weak var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinator: Coordinator?
-    let rootNavigationController = UINavigationController()
     
-    private lazy var navigationControllers = [rootNavigationController]
+    private let startNavigationController: UINavigationController
+    private var navigationControllers = [UINavigationController]()
     private var topNavigationController: UINavigationController {
-        navigationControllers.last ?? rootNavigationController
+        navigationControllers.last ?? startNavigationController
     }
-    private var childPresentationDelegate: PresentationDelegate?
+    private var rootNavigationController: UINavigationController {
+        navigationControllers.first ?? startNavigationController
+    }
     private var routePresentationDelegates = [PresentationDelegate]()
     
     var pushedDepth: Int {
@@ -20,11 +22,26 @@ final class ChildCoordinator: FlowCoordinator {
     var presentedDepth: Int {
         navigationControllers.count - 1
     }
+    
+    init(navigationController: UINavigationController) {
+        startNavigationController = navigationController
+    }
 
     func start() {
         let rootScreen = ChildScreen(coordinator: self)
         let vc = UIHostingController(rootView: rootScreen)
-        rootNavigationController.pushViewController(vc, animated: true)
+        let nc = UINavigationController(rootViewController: vc)
+        navigationControllers.append(nc)
+        let presentationDelegate = PresentationDelegate { [weak self] in
+            self?.finish()
+        }
+        nc.presentationController?.delegate = presentationDelegate
+        routePresentationDelegates.append(presentationDelegate)
+        if let sheet = nc.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
+        startNavigationController.present(nc, animated: true)
     }
     
     func pushNext() {
@@ -69,22 +86,15 @@ final class ChildCoordinator: FlowCoordinator {
             return
         }
         rootNavigationController.dismiss(animated: true)
-        navigationControllers.removeAll { $0 !== rootNavigationController }
-        routePresentationDelegates.removeAll()
+        navigationControllers.removeLast(navigationControllers.count - 1)
+        routePresentationDelegates.removeLast(routePresentationDelegates.count - 1)
         childCoordinator?.finish()
     }
     
-    func presentChild() {
-        let child = FirstTabCoordinator()
+    func startFirstTabCoordinator() {
+        let child = FirstTabCoordinator(navigationController: topNavigationController)
         addChild(child)
-        child.start()
-        let presentationDelegate = PresentationDelegate { [weak child] in
-            child?.finish()
-        }
-        child.rootNavigationController.presentationController?.delegate = presentationDelegate
-        self.childPresentationDelegate = presentationDelegate
-        child.rootNavigationController.modalPresentationStyle = .fullScreen
-        topNavigationController.present(child.rootNavigationController, animated: true)
+        child.startFromChild()
     }
     
     func dismissToParent() {

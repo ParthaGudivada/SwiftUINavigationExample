@@ -5,13 +5,15 @@ final class FirstTabCoordinator: FlowCoordinator {
     
     weak var finishDelegate: (any CoordinatorFinishDelegate)?
     var childCoordinator: Coordinator?
-    let rootNavigationController = UINavigationController()
     
-    private lazy var navigationControllers = [rootNavigationController]
+    private let startNavigationController: UINavigationController
+    private var navigationControllers = [UINavigationController]()
     private var topNavigationController: UINavigationController {
-        navigationControllers.last ?? rootNavigationController
+        navigationControllers.last ?? startNavigationController
     }
-    private var childPresentationDelegate: PresentationDelegate?
+    private var rootNavigationController: UINavigationController {
+        navigationControllers.first ?? startNavigationController
+    }
     private var routePresentationDelegates = [PresentationDelegate]()
     
     var pushedDepth: Int {
@@ -20,11 +22,25 @@ final class FirstTabCoordinator: FlowCoordinator {
     var presentedDepth: Int {
         navigationControllers.count - 1
     }
-
+    
+    init(navigationController: UINavigationController) {
+        startNavigationController = navigationController
+    }
+    
     func start() {
+        navigationControllers.append(startNavigationController)
         let rootScreen = FirstTabScreen(coordinator: self)
         let vc = UIHostingController(rootView: rootScreen)
-        rootNavigationController.pushViewController(vc, animated: false)
+        startNavigationController.setViewControllers([vc], animated: false)
+    }
+
+    func startFromChild() {
+        let rootScreen = FirstTabScreen(coordinator: self)
+        let vc = UIHostingController(rootView: rootScreen)
+        let nc = UINavigationController(rootViewController: vc)
+        navigationControllers.append(nc)
+        nc.modalPresentationStyle = .fullScreen
+        startNavigationController.present(nc, animated: true)
     }
     
     func pushNext(animated: Bool = true) {
@@ -69,27 +85,15 @@ final class FirstTabCoordinator: FlowCoordinator {
             return
         }
         rootNavigationController.dismiss(animated: animated)
-        navigationControllers.removeAll { $0 !== rootNavigationController }
+        navigationControllers.removeLast(navigationControllers.count - 1)
         routePresentationDelegates.removeAll()
         childCoordinator?.finish()
     }
     
-    func presentChild() {
-        let child = ChildCoordinator()
+    func startChildCoordinator() {
+        let child = ChildCoordinator(navigationController: topNavigationController)
         addChild(child)
         child.start()
-        
-        let presentationDelegate = PresentationDelegate { [weak child] in
-            child?.finish()
-        }
-        child.rootNavigationController.presentationController?.delegate = presentationDelegate
-        self.childPresentationDelegate = presentationDelegate
-        
-        if let sheet = child.rootNavigationController.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersGrabberVisible = true
-        }
-        topNavigationController.present(child.rootNavigationController, animated: true)
     }
     
     func dismissToParent() {
