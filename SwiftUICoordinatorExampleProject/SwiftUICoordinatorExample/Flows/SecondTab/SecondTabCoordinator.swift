@@ -8,7 +8,7 @@ final class SecondTabCoordinator: FlowCoordinator {
     @Published var navigationControllers = [NavigationController<SecondTabRoute>]()
     
     init() {
-        start()
+        setupInitialNavigationController()
     }
     
     func destination(for route: SecondTabRoute) -> some View {

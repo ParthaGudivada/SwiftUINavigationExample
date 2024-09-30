@@ -8,7 +8,7 @@ final class ChildCoordinator: FlowCoordinator {
     @Published var navigationControllers = [NavigationController<ChildCoordinatorRoute>]()
     
     init() {
-        start()
+        setupInitialNavigationController()
     }
     
     func destination(for route: ChildCoordinatorRoute) -> some View {

@@ -14,21 +14,28 @@ protocol FlowCoordinator: Coordinator {
 
 extension FlowCoordinator {
     
-    func start() {
+    func present(child: any Coordinator) {
+        childCoordinator = child
+        child.finishDelegate = self
+    }
+    
+    func dismissChild() {
+        childCoordinator = nil
+    }
+    
+    func didFinish(childCoordinator: any Coordinator) {
+        dismissChild()
+    }
+}
+
+extension FlowCoordinator {
+    
+    func setupInitialNavigationController() {
         navigationControllers.append(
             NavigationController { [weak self] nc in
                 self?.dismissNavigationController(nc)
             }
         )
-    }
-    
-    func didFinish(childCoordinator: any Coordinator) {
-        self.childCoordinator = nil
-    }
-
-    func present(child: any Coordinator) {
-        self.childCoordinator = child
-        child.finishDelegate = self
     }
     
     func push(route: Route) {
@@ -94,7 +101,7 @@ extension FlowCoordinator {
             return self.childCoordinator != nil && self.isTopNavigationController(nc)
         } set: { [weak self] newValue in
             guard !newValue else { return }
-            self?.childCoordinator = nil
+            self?.dismissChild()
         }
     }
     
