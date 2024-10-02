@@ -37,12 +37,9 @@ struct NavigatingView<SomeCoordinator: FlowCoordinator>: View {
     
     @ViewBuilder
     private var viewToPresent: some View {
-        if
-            let route = nc.presentedRoute,
-            let nc = coordinator.navigationControllers.last
-        {
+        if let route = nc.presentedRoute {
             NavigatingView(
-                nc: nc,
+                nc: coordinator.topNavigationController,
                 coordinator: coordinator
             ) {
                 coordinator.destination(for: route)

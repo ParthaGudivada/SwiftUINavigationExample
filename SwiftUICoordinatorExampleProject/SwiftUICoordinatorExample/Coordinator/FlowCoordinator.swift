@@ -39,31 +39,24 @@ extension FlowCoordinator {
     }
     
     func push(route: Route) {
-        navigationControllers.last?.navigationPath.append(route)
+        topNavigationController.navigationPath.append(route)
     }
     
     func popLast() {
-        guard
-            let routesCount = navigationControllers.last?.navigationPath.count,
-            routesCount > 0
-        else {
+        guard topNavigationController.navigationPath.count > 0 else {
             return
         }
         navigationControllers.last?.navigationPath.removeLast()
     }
     
     func popToRoot() {
-        guard
-            let routesCount = navigationControllers.last?.navigationPath.count,
-            routesCount > 0
-        else {
-            return
-        }
+        let routesCount = topNavigationController.navigationPath.count
+        guard routesCount > 0 else { return }
         navigationControllers.last?.navigationPath.removeLast(routesCount)
     }
     
     func present(route: Route) {
-        navigationControllers.last?.presentedRoute = route
+        topNavigationController.presentedRoute = route
         let nc = NavigationController<Route> { [weak self] nc in
             self?.dismissNavigationController(nc)
         }
@@ -73,7 +66,7 @@ extension FlowCoordinator {
     func dismissTop() {
         guard navigationControllers.count > 1 else { return }
         navigationControllers.removeLast()
-        navigationControllers.last?.presentedRoute = nil
+        topNavigationController.presentedRoute = nil
     }
     
     func dismissToRoot() {
@@ -81,7 +74,7 @@ extension FlowCoordinator {
         
         guard navigationControllers.count > 1 else { return }
         navigationControllers.removeLast(navigationControllers.count - 1)
-        navigationControllers.first?.presentedRoute = nil
+        rootNavigationController.presentedRoute = nil
     }
     
     func dismissNavigationController(_ nc: NavigationController<Route>) {
@@ -107,7 +100,14 @@ extension FlowCoordinator {
     
     var rootNavigationController: NavigationController<Route> {
         guard let nc = navigationControllers.first else {
-            fatalError("Coordinator wasn't started")
+            fatalError("Root navigation controller not found")
+        }
+        return nc
+    }
+    
+    var topNavigationController: NavigationController<Route> {
+        guard let nc = navigationControllers.last else {
+            fatalError("Top navigation controller not found")
         }
         return nc
     }
